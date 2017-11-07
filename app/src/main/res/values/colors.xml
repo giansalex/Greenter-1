@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#0091EA</color>
+    <color name="colorPrimaryDark">#0277BD</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colortotalventas">#FF000000</color>
+    <color name="coloriconfount">#B0BEC5</color>
+    <color name="colorupicon">#00796B</color>
+    <color name="colordownicon">#D50000</color>
+    <color name="colorTotal">#00B8D4</color>
+    <color name="colorLineX">#00E676</color>
+    <color name="colorfount">#37474F</color>
+    <color name="colorLine">#CFD8DC</color>
 </resources>
