@@ -42,6 +42,8 @@ public class ResumFragment extends Fragment {
     private TextView mTitleVentas;
     private LineChart mChartVentas;
     private ArrayList<Entry> values;
+    private ImageView mCircleAhora,mCircleDia,mCircleSemana,mCircleMes;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +51,7 @@ public class ResumFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_resum, container, false);
         findViewById();
+        event();
 
        /* mChartVentas.setOnChartGestureListener(this);
         mChartVentas.setOnChartValueSelectedListener(this);*/
@@ -130,11 +133,56 @@ public class ResumFragment extends Fragment {
         mPorcentVentas = view.findViewById(R.id.txtPorcentVentas);
         mTitleVentas = view.findViewById(R.id.txtVentas);
         mChartVentas = view.findViewById(R.id.lineChartVentas);
+        mCircleAhora = view.findViewById(R.id.circleAhora);
+        mCircleDia = view.findViewById(R.id.circleDia);
+        mCircleSemana = view.findViewById(R.id.circleSemana);
+        mCircleMes = view.findViewById(R.id.circleMes);
         DrawableCompat.setTint(mImgDownVentas.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
         mPorcentVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorupicon));
         mTitleVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorfount));
     }
 
+    private void event(){
+        mCircleAhora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawableCompat.setTint(mCircleAhora.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorTotal));
+                DrawableCompat.setTint(mCircleDia.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleSemana.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleMes.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
 
+            }
+        });
+        mCircleDia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawableCompat.setTint(mCircleAhora.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleDia.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorTotal));
+                DrawableCompat.setTint(mCircleSemana.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleMes.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+            }
+        });
+        mCircleSemana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawableCompat.setTint(mCircleAhora.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleDia.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleSemana.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorTotal));
+                DrawableCompat.setTint(mCircleMes.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+            }
+        });
+        mCircleMes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawableCompat.setTint(mCircleAhora.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleDia.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleSemana.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+                DrawableCompat.setTint(mCircleMes.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorTotal));
+            }
+        });
+    }
+    private void setColorCircle(){
+
+    }
 
 }

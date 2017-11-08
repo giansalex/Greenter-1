@@ -64,11 +64,14 @@
             android:id="@+id/imgUpVentas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/lineChartVentas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtTotalVentas"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.14999998"
             app:srcCompat="@drawable/ic_up_ventas" />
 
         <ImageView
@@ -103,7 +106,7 @@
             app:layout_constraintVertical_bias="0.504" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgTimeLine"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="8dp"
@@ -119,7 +122,7 @@
             app:layout_constraintVertical_bias="0.9" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/circleAhora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -135,7 +138,7 @@
             app:srcCompat="@drawable/icon_circle" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/circleDia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -151,7 +154,7 @@
             app:srcCompat="@drawable/icon_circle" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/circleMes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -167,7 +170,7 @@
             app:srcCompat="@drawable/icon_circle" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/circleSemana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

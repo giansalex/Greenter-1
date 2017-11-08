@@ -1,6 +1,8 @@
 package com.analycer.greenter.greenter;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment mFragment = null;
-        FragmentManager mFragmentManager = getSupportFragmentManager();
+        final FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (id){
             case R.id.nav_camera:
@@ -121,12 +124,18 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
-        if (mFragment!=null){
-            mFragmentManager.beginTransaction().replace(R.id.mainFrgamnet,mFragment).commit();
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        if (mFragment!=null){
+            final Fragment finalMFragment = mFragment;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mFragmentManager.beginTransaction().replace(R.id.mainFrgamnet, finalMFragment).commit();
+                }
+            }, 400);
+        }
         return true;
     }
 }
