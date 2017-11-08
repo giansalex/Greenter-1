@@ -20,6 +20,8 @@ import android.widget.ImageView;
 
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
+import com.androidnetworking.AndroidNetworking;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         findViewById();
         addEvents();
-
+//        AndroidNetworking.initialize(getApplicationContext());
     }
 
     private void findViewById(){
