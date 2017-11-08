@@ -6,7 +6,8 @@
 
     <color name="colortotalventas">#FF000000</color>
     <color name="coloriconfount">#B0BEC5</color>
-    <color name="colorupicon">#00796B</color>
+    <color name="colorupicon">#00E676</color>
+    <color name="colorupicon1">#00796B</color>
     <color name="colordownicon">#D50000</color>
     <color name="colorTotal">#00B8D4</color>
     <color name="colorLineX">#00E676</color>

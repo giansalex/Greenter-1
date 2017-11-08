@@ -111,7 +111,7 @@ public class ResumFragment extends Fragment {
         mChartVentas.setData(lineData);
         mChartVentas.invalidate(); //
 
-        
+
         return view;
     }
 
