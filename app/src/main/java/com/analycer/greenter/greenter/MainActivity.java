@@ -18,9 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.analycer.greenter.greenter.fragments.CategoriaFragment;
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
-import com.androidnetworking.AndroidNetworking;
+
 
 
 public class MainActivity extends AppCompatActivity
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity
                 mFragment = new ProductsFragment();
                 break;
             case R.id.nav_slideshow:
+                mFragment = new CategoriaFragment();
                 break;
             case R.id.nav_manage:
                 break;

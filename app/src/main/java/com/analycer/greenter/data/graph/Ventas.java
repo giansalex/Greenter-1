@@ -1,6 +1,6 @@
 package com.analycer.greenter.data.graph;
 
-import com.analycer.greenter.client.model.Invoice;
+import com.example.greenter_core.model.Invoice;
 
 import java.util.List;
 

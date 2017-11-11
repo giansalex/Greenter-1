@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.analycer.greenter.client.model;
+package com.example.greenter_core.model;
 
 import com.google.gson.annotations.SerializedName;
 

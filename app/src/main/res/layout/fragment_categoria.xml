@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.analycer.greenter.greenter.fragments.ProductsFragment">
+    tools:context="com.analycer.greenter.greenter.fragments.CategoriaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.github.mikephil.charting.charts.CombinedChart
-        android:id="@+id/chartCombinate"
+    <TextView
+        android:id="@+id/txtHola"
         android:layout_width="match_parent"
-        android:layout_height="260dp"/>
-
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
