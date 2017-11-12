@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.analycer.greenter.greenter.R;
-import com.example.greenter_core.callbackService;
-import com.example.greenter_core.model.Invoice;
-import com.example.greenter_core.services;
+import com.greenter.core.model.Invoice;
+import com.greenter.core.services.VentaService;
+import com.greenter.core.services.callbackService;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class CategoriaFragment extends Fragment implements callbackService {
 
-    private services mServices;
+    private VentaService mServices;
     public CategoriaFragment() {
         // Required empty public constructor
     }
@@ -33,13 +33,13 @@ public class CategoriaFragment extends Fragment implements callbackService {
         View view = inflater.inflate(R.layout.fragment_categoria, container, false);
 
         TextView textView = (TextView)view.findViewById(R.id.txtHola);
-        mServices = new services(getActivity(),this);
+        mServices = new VentaService(this);
 
         return view;
     }
 
     @Override
-    public void getList(List<Invoice> invoiceList) {
+    public void setList(List<Invoice> invoiceList) {
 
     }
 }

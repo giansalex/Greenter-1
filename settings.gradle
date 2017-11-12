@@ -1,1 +1,1 @@
-include ':app', ':greenter_core'
+include ':app', ':greentercore'
