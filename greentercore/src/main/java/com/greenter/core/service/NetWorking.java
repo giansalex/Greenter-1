@@ -1,4 +1,4 @@
-package com.greenter.core.services;
+package com.greenter.core.service;
 
 import android.content.Context;
 

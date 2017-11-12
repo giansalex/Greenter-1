@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.analycer.greenter.greenter.R;
+import com.greenter.core.callback.ApiDataRequest;
 import com.greenter.core.model.Invoice;
-import com.greenter.core.services.VentaService;
-import com.greenter.core.services.callbackService;
+import com.greenter.core.service.SaleService;
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoriaFragment extends Fragment implements callbackService {
+public class CategoriaFragment extends Fragment implements ApiDataRequest<List<Invoice>> {
 
-    private VentaService mServices;
+    private SaleService mServices;
     public CategoriaFragment() {
         // Required empty public constructor
     }
@@ -33,13 +33,13 @@ public class CategoriaFragment extends Fragment implements callbackService {
         View view = inflater.inflate(R.layout.fragment_categoria, container, false);
 
         TextView textView = (TextView)view.findViewById(R.id.txtHola);
-        mServices = new VentaService(this);
+        mServices = new SaleService(this);
 
         return view;
     }
 
     @Override
-    public void setList(List<Invoice> invoiceList) {
+    public void setApiResponse(List<Invoice> invoiceList) {
 
     }
 }

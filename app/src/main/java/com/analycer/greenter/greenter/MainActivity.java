@@ -2,7 +2,6 @@ package com.analycer.greenter.greenter;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.HandlerThread;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -16,12 +15,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.analycer.greenter.greenter.fragments.CategoriaFragment;
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
-import com.greenter.core.services.NetWorking;
+import com.greenter.core.service.NetWorking;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
