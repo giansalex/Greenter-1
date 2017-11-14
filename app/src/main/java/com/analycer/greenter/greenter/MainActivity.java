@@ -24,6 +24,7 @@ import com.greenter.core.service.NetWorking;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String API_ENDPOINT = "http://greenterapp-quertium.1d35.starter-us-east-1.openshiftapps.com/api/v1";
     private FloatingActionButton fab;
     private Toolbar toolbar;
     private Fragment mResumFragment;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         findViewById();
         addEvents();
 
-        NetWorking.init(getApplicationContext());
+        NetWorking.init(getApplicationContext(), API_ENDPOINT);
     }
 
     private void findViewById(){
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         if (mFragment!=null){
             final Fragment finalMFragment = mFragment;

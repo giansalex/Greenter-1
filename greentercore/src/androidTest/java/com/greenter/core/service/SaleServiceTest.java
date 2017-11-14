@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.androidnetworking.AndroidNetworking;
 import com.greenter.core.callback.ApiDataRequest;
 import com.greenter.core.model.Invoice;
 
@@ -19,10 +18,12 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class SaleServiceTest {
 
+    private static final String API_ENDPOINT = "http://greenterapp-quertium.1d35.starter-us-east-1.openshiftapps.com/api/v1";
+
     @Before
     public void init() {
         Context context = InstrumentationRegistry.getTargetContext();
-        AndroidNetworking.initialize(context);
+        NetWorking.init(context, API_ENDPOINT);
     }
 
     @Test

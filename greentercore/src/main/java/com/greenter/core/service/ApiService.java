@@ -7,13 +7,17 @@ import com.androidnetworking.common.ANRequest;
  * Base api service.
  */
 public class ApiService {
-    private static final String API_ENDPOINT = "http://greenterapp-quertium.1d35.starter-us-east-1.openshiftapps.com/api/v1";
+    private static String _url;
 
-    public ANRequest.GetRequestBuilder get(String url) {
-        return AndroidNetworking.get(API_ENDPOINT.concat(url));
+    public static void setApiEndpoint(String url) {
+        _url = url;
     }
 
-    public ANRequest.PostRequestBuilder post(String url) {
-        return AndroidNetworking.post(API_ENDPOINT.concat(url));
+    public ANRequest.GetRequestBuilder get(String path) {
+        return AndroidNetworking.get(_url.concat(path));
+    }
+
+    public ANRequest.PostRequestBuilder post(String path) {
+        return AndroidNetworking.post(_url.concat(path));
     }
 }

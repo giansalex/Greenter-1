@@ -13,7 +13,8 @@ public final class NetWorking {
      * Inicializa el android networking.
      * @param context
      */
-    public static void init(Context context) {
+    public static void init(Context context, String url) {
         AndroidNetworking.initialize(context);
+        ApiService.setApiEndpoint(url);
     }
 }
