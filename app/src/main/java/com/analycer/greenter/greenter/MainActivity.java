@@ -110,16 +110,16 @@ public class MainActivity extends AppCompatActivity
         final FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (id){
-            case R.id.nav_camera:
+            case R.id.nav_resumen:
                 mFragment = mResumFragment;
                 break;
-            case R.id.nav_gallery:
+            case R.id.nav_product:
                 mFragment = new ProductsFragment();
                 break;
-            case R.id.nav_slideshow:
+            case R.id.nav_category:
                 mFragment = new CategoriaFragment();
                 break;
-            case R.id.nav_manage:
+            case R.id.nav_client:
                 break;
             case R.id.nav_share:
                 break;
