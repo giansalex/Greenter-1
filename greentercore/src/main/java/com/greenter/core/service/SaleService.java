@@ -26,7 +26,6 @@ public class SaleService extends ApiService {
                     public void onResponse(List<Invoice> response) {
                         mCallbackService.setApiResponse(response);
                     }
-
                     @Override
                     public void onError(ANError anError) {
 

@@ -179,6 +179,8 @@ public class ResumFragment extends Fragment {
             }
         });
 
+
+
     }
 
     private Point getCenterPoint(View view){

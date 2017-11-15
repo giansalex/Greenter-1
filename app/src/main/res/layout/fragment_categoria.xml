@@ -5,10 +5,9 @@
     tools:context="com.analycer.greenter.greenter.fragments.CategoriaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/txtHola"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <com.github.mikephil.charting.charts.PieChart
+       android:id="@+id/chartCategoria"
+       android:layout_width="match_parent"
+       android:layout_height="350dp"/>
 
 </FrameLayout>
