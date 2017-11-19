@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import com.analycer.greenter.greenter.R;
 import com.github.mikephil.charting.animation.Easing;
@@ -51,7 +50,7 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
             "Party Y", "Party Z"
     };
 
-    
+
     public CategoriaFragment() {
         // Required empty public constructor
     }

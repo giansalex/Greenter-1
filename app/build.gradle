@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.analycer.greenter.greenter"
+        applicationId "com.analycer.greenter"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -30,6 +30,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.mikhaellopez:circularprogressbar:1.1.1'
 
+    implementation 'com.google.android.gms:play-services-plus:11.6.0'
+    implementation 'com.google.android.gms:play-services-maps:11.6.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
