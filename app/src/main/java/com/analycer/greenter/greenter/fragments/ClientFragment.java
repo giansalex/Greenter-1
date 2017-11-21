@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.analycer.greenter.greenter.ClientsMapsActivity;
+import com.analycer.greenter.greenter.DetailClientActivity;
 import com.analycer.greenter.greenter.R;
 
 /**
@@ -30,7 +31,9 @@ public class ClientFragment extends Fragment {
         mMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ClientsMapsActivity.class);
+                /*Intent intent = new Intent(getActivity(), ClientsMapsActivity.class);
+                startActivity(intent);*/
+                Intent intent = new Intent(getActivity(), DetailClientActivity.class);
                 startActivity(intent);
             }
         });
