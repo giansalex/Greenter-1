@@ -59,8 +59,8 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        /*getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_categoria, container, false);
         mServices = new SaleService(this);

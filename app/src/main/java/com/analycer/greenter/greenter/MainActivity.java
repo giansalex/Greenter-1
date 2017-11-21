@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.analycer.greenter.greenter.fragments.CategoriaFragment;
 import com.analycer.greenter.greenter.fragments.ClientFragment;
+import com.analycer.greenter.greenter.fragments.ComprobantesFragment;
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
 import com.greenter.core.service.NetWorking;
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity
                 mFragment =new ClientFragment();
                 break;
             case R.id.nav_share:
+                mFragment = new ComprobantesFragment();
                 break;
             case R.id.nav_send:
                 break;

@@ -13,4 +13,5 @@
     <color name="colorLineX">#00E676</color>
     <color name="colorfount">#37474F</color>
     <color name="colorLine">#CFD8DC</color>
+    <color name="window_background">#E0F2F1</color>
 </resources>

@@ -1,7 +1,9 @@
 package com.analycer.greenter.greenter.fragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,8 +27,10 @@ import java.util.List;
 public class ComprobantesFragment extends Fragment {
 
 
-    private TabLayout tabs;
+    private AppBarLayout mAppBarLayout;
+    private TabLayout mTablayout;
     private ViewPager viewPager;
+    private Adapter adapter;
 
     public ComprobantesFragment() {
         // Required empty public constructor
@@ -39,26 +43,49 @@ public class ComprobantesFragment extends Fragment {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mAppBarLayout.removeView(mTablayout);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_comprobantes, container, false);
-        // Setting ViewPager for each Tabs
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-        // Set Tabs inside Toolbar
-        tabs = (TabLayout) view.findViewById(R.id.result_tabs);
-        tabs.setupWithViewPager(viewPager);
+        if (savedInstanceState == null) {
+            try {
+                insertarTabs(container);
+                // Setting ViewPager for each Tabs
+                viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+                setupViewPager(viewPager);
+                // Set Tabs inside Toolbar
+                //mTablayout = (TabLayout) view.findViewById(R.id.result_tabs);
+                mTablayout.setupWithViewPager(viewPager);
+            }catch (Exception e){
+                e.getMessage();
+            }
+
+        }
 
         return view;
     }
 
+    private void insertarTabs(ViewGroup container) {
+        View padre = (View) container.getParent();
+        mAppBarLayout = (AppBarLayout) padre.findViewById(R.id.mAppBar);
+        mTablayout = new TabLayout(getActivity());
+        mTablayout.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
+        mAppBarLayout.addView(mTablayout);
+    }
+
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
-        Adapter adapter = new Adapter(getChildFragmentManager());
+        adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(new FacturasFragment(), "Fact");
         adapter.addFragment(new BoletasFragment(), "Bolet");
         adapter.addFragment(new NotaCreditoFragment(), "NotCre");
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(adapter);
     }
 
