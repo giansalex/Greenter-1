@@ -20,9 +20,13 @@
             android:id="@+id/nav_client"
             android:icon="@drawable/ic_menu_manage"
             android:title="Clientes" />
+        <item
+            android:id="@+id/nav_compro"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Comprobantes"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Servicios">
         <menu>
             <item
                 android:id="@+id/nav_share"

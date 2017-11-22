@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_client:
                 mFragment =new ClientFragment();
                 break;
-            case R.id.nav_share:
+            case R.id.nav_compro:
                 mFragment = new ComprobantesFragment();
                 break;
             case R.id.nav_send:
