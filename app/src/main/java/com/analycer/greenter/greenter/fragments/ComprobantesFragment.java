@@ -82,9 +82,10 @@ public class ComprobantesFragment extends Fragment {
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
         adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new FacturasFragment(), "Fact");
-        adapter.addFragment(new BoletasFragment(), "Bolet");
-        adapter.addFragment(new NotaCreditoFragment(), "NotCre");
+        adapter.addFragment(new FacturasFragment(), "FAC");
+        adapter.addFragment(new BoletasFragment(), "BOL");
+        adapter.addFragment(new NotaCreditoFragment(), "NCR");
+        adapter.addFragment(new NotaCreditoFragment(), "NDB");
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(adapter);
     }
