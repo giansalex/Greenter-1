@@ -25,6 +25,7 @@ public class AuthService extends ApiService {
         .getAsObject(AuthResponse.class, new ParsedRequestListener<AuthResponse>() {
             @Override
             public void onResponse(AuthResponse response) {
+                ApiService.setToken(response.getToken());
                 callback.setApiResponse(response);
             }
 
@@ -42,6 +43,7 @@ public class AuthService extends ApiService {
         .getAsObject(AuthResponse.class, new ParsedRequestListener<AuthResponse>() {
             @Override
             public void onResponse(AuthResponse response) {
+                ApiService.setToken(response.getToken());
                 callback.setApiResponse(response);
             }
 

@@ -1,14 +1,13 @@
 package com.greenter.core.service;
 
 import com.greenter.core.callback.ApiDataRequest;
-import com.greenter.core.model.DataStore;
 import com.greenter.core.model.Invoice;
 import com.greenter.core.model.Note;
 
 import java.util.List;
 
 /**
- * Created by Giansalex on 22/11/2017.
+ *  Load Documents from company.
  */
 
 public class DataLoaderService {
