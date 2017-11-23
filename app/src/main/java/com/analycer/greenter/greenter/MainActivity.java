@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ApiDataRequest<DataStore> {
 
     private static final String API_ENDPOINT = "https://factesol.ml/sunat/public/api/v1";
+    private static final String API_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYmYiOjE1MTE0NTE4OTV9.0uGFLIbChXekLErY1fNpDfZaywwO-TuQuBeLn4cx63I";
     //private FloatingActionButton fab;
     private Toolbar toolbar;
     private Fragment mResumFragment;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         addEvents();
 
         NetWorking.init(getApplicationContext(), API_ENDPOINT);
-        ApiService.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYmYiOjE1MTE0NTE4OTV9.0uGFLIbChXekLErY1fNpDfZaywwO-TuQuBeLn4cx63I");
+        ApiService.setToken(API_TOKEN);
         new DataStoreService(this).getAll();
     }
 
