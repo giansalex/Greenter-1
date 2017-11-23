@@ -58,7 +58,7 @@ public class RecyclerViewFacAdapter extends RecyclerView.Adapter<RecyclerViewFac
     }
 
     public void setElement(List<Invoice> datasetlist){
-        this.datasetlist =datasetlist;
+        this.datasetlist = datasetlist;
         notifyDataSetChanged();
     }
     public void clear() {

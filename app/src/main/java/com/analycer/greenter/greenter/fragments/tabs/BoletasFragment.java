@@ -3,14 +3,17 @@ package com.analycer.greenter.greenter.fragments.tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.analycer.greenter.greenter.R;
+import com.analycer.greenter.greenter.adapter.RecyclerViewFacAdapter;
 import com.greenter.core.model.DataStore;
 import com.greenter.core.model.Invoice;
 import com.greenter.core.service.DataService;
+import com.stone.vega.library.VegaLayoutManager;
 
 import java.util.ArrayList;
 
@@ -19,6 +22,8 @@ import java.util.ArrayList;
  */
 public class BoletasFragment extends Fragment {
 
+    RecyclerView recycleBol;
+    private RecyclerViewFacAdapter adapter;
 
     public BoletasFragment() {
         // Required empty public constructor
@@ -29,7 +34,13 @@ public class BoletasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_boletas, container, false);
+        View view =  inflater.inflate(R.layout.fragment_boletas, container, false);
+        recycleBol = view.findViewById(R.id.recycleBol);
+        recycleBol.setLayoutManager(new VegaLayoutManager());
+        adapter = new RecyclerViewFacAdapter(getActivity());
+        recycleBol.setAdapter(adapter);
+        loadDocs();
+        return view;
     }
 
     public void loadDocs() {
@@ -41,11 +52,11 @@ public class BoletasFragment extends Fragment {
 
         for (Invoice invoice :
                 store.invoices) {
-            if (invoice.getTipoDoc().trim() == "03") {
+            if (invoice.getTipoDoc().trim().equals("03")) {
                 boletas.add(invoice);
             }
         }
-
+        adapter.setElement(boletas);
 
     }
 

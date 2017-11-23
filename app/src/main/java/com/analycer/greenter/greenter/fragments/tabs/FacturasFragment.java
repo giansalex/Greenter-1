@@ -51,17 +51,14 @@ public class FacturasFragment extends Fragment {
         DataStore store = new DataService()
                 .getInstance()
                 .getStore();
-
         ArrayList<Invoice> invoices = new ArrayList<>();
 
         for (Invoice invoice : store.invoices) {
-            if (invoice.getTipoDoc().trim() == "01") {
+            if (invoice.getTipoDoc().trim().equals("01")) {
                 invoices.add(invoice);
             }
         }
-
         adapter.setElement(invoices);
-
     }
 
 }
