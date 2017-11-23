@@ -3,6 +3,7 @@ package com.analycer.greenter.greenter.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.analycer.greenter.greenter.R;
  */
 public class ClientFragment extends Fragment {
     Button mMaps;
+    private FloatingActionButton mFabMaps;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,6 +29,7 @@ public class ClientFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_client, container, false);
 
         mMaps = (Button) view.findViewById(R.id.btnMaps);
+        mFabMaps = view.findViewById(R.id.fabMaps);
 
         mMaps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,14 @@ public class ClientFragment extends Fragment {
                 /*Intent intent = new Intent(getActivity(), ClientsMapsActivity.class);
                 startActivity(intent);*/
                 Intent intent = new Intent(getActivity(), DetailClientActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mFabMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ClientsMapsActivity.class);
                 startActivity(intent);
             }
         });

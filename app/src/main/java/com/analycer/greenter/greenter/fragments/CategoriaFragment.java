@@ -195,7 +195,7 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
 
     @Override
     public void setApiResponse(List<Invoice> invoiceList) {
-
+        List<Invoice> minv = invoiceList;
     }
 
 

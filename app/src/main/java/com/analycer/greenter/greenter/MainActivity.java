@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String API_ENDPOINT = "http://greenterapp-quertium.1d35.starter-us-east-1.openshiftapps.com/api/v1";
-    private FloatingActionButton fab;
+    //private FloatingActionButton fab;
     private Toolbar toolbar;
     private Fragment mResumFragment;
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void findViewById(){
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        //fab = (FloatingActionButton) findViewById(R.id.fab);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void addEvents(){
-        fab.setOnClickListener(new View.OnClickListener() {
+      /*  fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     @Override

@@ -4,6 +4,8 @@ package com.analycer.greenter.greenter.fragments;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -177,9 +179,8 @@ public class ResumFragment extends Fragment {
             }
         });
 
-
-
     }
+
 
     private Point getCenterPoint(View view){
         //si usas .x usa esto
