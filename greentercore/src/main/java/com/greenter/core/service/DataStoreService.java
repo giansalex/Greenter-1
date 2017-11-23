@@ -4,24 +4,23 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.greenter.core.callback.ApiDataRequest;
-import com.greenter.core.model.ProductCategory;
+import com.greenter.core.model.DataStore;
 
-import java.util.List;
 
-public class ProductCategoryService extends ApiService {
-    private ApiDataRequest<List<ProductCategory>> mCallbackService;
+public class DataStoreService extends ApiService {
+    private ApiDataRequest<DataStore> mCallbackService;
 
-    public ProductCategoryService(ApiDataRequest<List<ProductCategory>> mCallbackService) {
+    public DataStoreService(ApiDataRequest<DataStore> mCallbackService) {
         this.mCallbackService = mCallbackService;
     }
 
-    public void getList() {
-        get("/product/category")
-                .setPriority(Priority.LOW)
+    public void getAll() {
+        get("/documents")
+                .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObjectList(ProductCategory.class, new ParsedRequestListener<List<ProductCategory>>() {
+                .getAsObject(DataStore.class, new ParsedRequestListener<DataStore>() {
                     @Override
-                    public void onResponse(List<ProductCategory> response) {
+                    public void onResponse(DataStore response) {
                         mCallbackService.setApiResponse(response);
                     }
 

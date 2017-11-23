@@ -2,6 +2,7 @@ package com.analycer.greenter.greenter;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -21,12 +22,17 @@ import com.analycer.greenter.greenter.fragments.ClientFragment;
 import com.analycer.greenter.greenter.fragments.ComprobantesFragment;
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
+import com.greenter.core.callback.ApiDataRequest;
+import com.greenter.core.model.DataStore;
+import com.greenter.core.service.ApiService;
+import com.greenter.core.service.DataService;
+import com.greenter.core.service.DataStoreService;
 import com.greenter.core.service.NetWorking;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ApiDataRequest<DataStore> {
 
-    private static final String API_ENDPOINT = "http://greenterapp-quertium.1d35.starter-us-east-1.openshiftapps.com/api/v1";
+    private static final String API_ENDPOINT = "https://factesol.ml/sunat/public/api/v1";
     //private FloatingActionButton fab;
     private Toolbar toolbar;
     private Fragment mResumFragment;
@@ -41,6 +47,8 @@ public class MainActivity extends AppCompatActivity
         addEvents();
 
         NetWorking.init(getApplicationContext(), API_ENDPOINT);
+        ApiService.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJuYmYiOjE1MTE0NTE4OTV9.0uGFLIbChXekLErY1fNpDfZaywwO-TuQuBeLn4cx63I");
+        new DataStoreService(this).getAll();
     }
 
     private void findViewById(){
@@ -104,7 +112,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -144,5 +152,11 @@ public class MainActivity extends AppCompatActivity
             }, 400);
         }
         return true;
+    }
+
+    @Override
+    public void setApiResponse(DataStore data) {
+        DataService.getInstance().setDataStore(data);
+        // callback - finish load data
     }
 }
