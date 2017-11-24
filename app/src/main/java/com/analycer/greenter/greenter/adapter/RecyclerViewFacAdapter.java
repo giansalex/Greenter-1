@@ -81,8 +81,9 @@ public class RecyclerViewFacAdapter extends RecyclerView.Adapter<RecyclerViewFac
         }
 
         public void bindData(Invoice mInvoice,int redColor,int greenColor) {
-            txtCorrelativo.setText(mInvoice.getCorrelativo());
-            montoTotal.setText("s/" + mInvoice.getTotalAnticipos());
+            String moneda = mInvoice.getTipoMoneda() == "USD" ? "$" : "S/";
+            txtCorrelativo.setText(mInvoice.getSerie() + "-" + mInvoice.getCorrelativo());
+            montoTotal.setText(moneda + " " +  mInvoice.getMtoImpVenta());
             nombreCliente.setText(mInvoice.getClient().getRznSocial());
            // montoTotal.setTextColor(mInvoice.getTipoOperacion().isEmpty()? redColor : greenColor);
         }

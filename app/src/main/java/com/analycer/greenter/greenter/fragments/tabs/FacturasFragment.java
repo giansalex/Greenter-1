@@ -48,7 +48,8 @@ public class FacturasFragment extends Fragment {
     }
 
     public void loadDocs() {
-        DataStore store = new DataService()
+        new DataService();
+        DataStore store = DataService
                 .getInstance()
                 .getStore();
         ArrayList<Invoice> invoices = new ArrayList<>();
