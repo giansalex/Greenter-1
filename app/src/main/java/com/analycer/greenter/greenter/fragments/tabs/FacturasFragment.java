@@ -16,13 +16,14 @@ import com.greenter.core.service.DataService;
 import com.stone.vega.library.VegaLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FacturasFragment extends Fragment {
 
-
+    List<Invoice> invoices;
     private RecyclerView mCecyclerFacturas;
     private RecyclerViewFacAdapter adapter;
 
@@ -40,26 +41,38 @@ public class FacturasFragment extends Fragment {
         mCecyclerFacturas.setLayoutManager(new VegaLayoutManager());
         adapter = new RecyclerViewFacAdapter(getActivity());
         mCecyclerFacturas.setAdapter(adapter);
-        loadDocs();
+        if (loadDocs()) {
+            adapter.setElement(invoices);
+        }
+
        /* redColor = getResources().getColor(R.color.red);
         greenColor = getResources().getColor(R.color.green);*/
 
         return view;
     }
 
-    public void loadDocs() {
-        new DataService();
+    public boolean loadDocs() {
+        if (invoices != null) {
+            return true;
+        }
+
         DataStore store = DataService
                 .getInstance()
                 .getStore();
-        ArrayList<Invoice> invoices = new ArrayList<>();
+
+        if (store.invoices == null) {
+            return false;
+        }
+
+        invoices = new ArrayList<>();
 
         for (Invoice invoice : store.invoices) {
             if (invoice.getTipoDoc().trim().equals("01")) {
                 invoices.add(invoice);
             }
         }
-        adapter.setElement(invoices);
+
+        return true;
     }
 
 }

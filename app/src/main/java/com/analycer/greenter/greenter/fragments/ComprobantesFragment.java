@@ -17,6 +17,7 @@ import com.analycer.greenter.greenter.R;
 import com.analycer.greenter.greenter.fragments.tabs.BoletasFragment;
 import com.analycer.greenter.greenter.fragments.tabs.FacturasFragment;
 import com.analycer.greenter.greenter.fragments.tabs.NotaCreditoFragment;
+import com.analycer.greenter.greenter.fragments.tabs.NotaDebitoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +86,7 @@ public class ComprobantesFragment extends Fragment {
         adapter.addFragment(new FacturasFragment(), "FAC");
         adapter.addFragment(new BoletasFragment(), "BOL");
         adapter.addFragment(new NotaCreditoFragment(), "NCR");
-        adapter.addFragment(new NotaCreditoFragment(), "NDB");
+        adapter.addFragment(new NotaDebitoFragment(), "NDB");
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(adapter);
     }

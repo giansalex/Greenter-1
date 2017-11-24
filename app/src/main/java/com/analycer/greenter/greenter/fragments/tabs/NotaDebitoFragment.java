@@ -41,29 +41,34 @@ public class NotaDebitoFragment extends Fragment {
         RecyclerViewNoteAdapter adapter = new RecyclerViewNoteAdapter(getActivity());
         recycleNotaDebit.setAdapter(adapter);
 
-        loadDocs();
-        adapter.setElement(notes);
+        if (loadDocs()) {
+            adapter.setElement(notes);
+        }
 
         return view;
     }
 
-    public void loadDocs() {
+    public boolean loadDocs() {
         if (notes != null) {
-            return;
+            return true;
         }
         DataStore store = DataService
                 .getInstance()
                 .getStore();
 
-        ArrayList<Note> ncr = new ArrayList<>();
+        if (store.notes == null) {
+            return false;
+        }
 
-        for (Note note:store.notes) {
+        notes = new ArrayList<>();
+
+        for (Note note: store.notes) {
             if (note.getTipoDoc().trim().equals("08")) {
-                ncr.add(note);
+                notes.add(note);
             }
         }
 
-        notes = ncr;
+        return true;
     }
 
 }

@@ -16,12 +16,14 @@ import com.greenter.core.service.DataService;
 import com.stone.vega.library.VegaLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BoletasFragment extends Fragment {
 
+    List<Invoice> boletas;
     RecyclerView recycleBol;
     private RecyclerViewFacAdapter adapter;
 
@@ -39,16 +41,26 @@ public class BoletasFragment extends Fragment {
         recycleBol.setLayoutManager(new VegaLayoutManager());
         adapter = new RecyclerViewFacAdapter(getActivity());
         recycleBol.setAdapter(adapter);
-        loadDocs();
+        if (loadDocs()) {
+            adapter.setElement(boletas);
+        }
         return view;
     }
 
-    public void loadDocs() {
+    public boolean loadDocs() {
+        if (boletas != null) {
+            return true;
+        }
+
         DataStore store = DataService
                 .getInstance()
                 .getStore();
 
-        ArrayList<Invoice> boletas = new ArrayList<>();
+        if (store.invoices == null) {
+            return false;
+        }
+
+        boletas = new ArrayList<>();
 
         for (Invoice invoice :
                 store.invoices) {
@@ -56,8 +68,8 @@ public class BoletasFragment extends Fragment {
                 boletas.add(invoice);
             }
         }
-        adapter.setElement(boletas);
 
+        return true;
     }
 
 }

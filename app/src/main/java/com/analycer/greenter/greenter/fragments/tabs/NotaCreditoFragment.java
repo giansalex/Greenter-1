@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.analycer.greenter.greenter.R;
-import com.analycer.greenter.greenter.adapter.RecyclerViewFacAdapter;
 import com.analycer.greenter.greenter.adapter.RecyclerViewNoteAdapter;
 import com.greenter.core.model.DataStore;
 import com.greenter.core.model.Note;
@@ -40,27 +39,33 @@ public class NotaCreditoFragment extends Fragment {
         RecyclerViewNoteAdapter adapter = new RecyclerViewNoteAdapter(getActivity());
         recycleNotaCre.setAdapter(adapter);
 
-        loadDocs();
-        adapter.setElement(notes);
+        if (loadDocs()) {
+            adapter.setElement(notes);
+        }
         return view;
     }
 
-    public void loadDocs() {
+    public boolean loadDocs() {
         if (notes != null) {
-            return;
+            return true;
         }
+
         DataStore store = DataService
                 .getInstance()
                 .getStore();
 
-        ArrayList<Note> ncr = new ArrayList<>();
+        if (store.notes == null) {
+            return false;
+        }
+
+        notes = new ArrayList<>();
 
         for (Note note:store.notes) {
             if (note.getTipoDoc().trim().equals("07")) {
-                ncr.add(note);
+                notes.add(note);
             }
         }
 
-        notes = ncr;
+        return true;
     }
 }
