@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <RelativeLayout
         android:id="@+id/rela1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_procts">
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/pgr1"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -61,14 +63,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@+id/rela1"
         android:id="@+id/rela2"
+        android:layout_margin="@dimen/margin_procts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/pgr3"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -116,13 +118,13 @@
 
     <RelativeLayout
         android:id="@+id/rela3"
-        android:layout_below="@+id/rela2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_procts">
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/pgr2"
-            android:layout_width="wrap_content"
+            android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -154,59 +156,29 @@
             android:layout_below="@+id/textView9"
             android:text="11/20"
             android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="20%" />
     </RelativeLayout>
 
     <RelativeLayout
-    android:layout_below="@+id/rela3"
         android:id="@+id/rela4"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <com.mikhaellopez.circularprogressbar.CircularProgressBar
-        android:id="@+id/pgr4"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:cpb_background_progressbar_color="#FFCDD2"
-        app:cpb_background_progressbar_width="5dp"
-        app:cpb_progress="20"
-        android:layout_marginTop="5dp"
-        app:cpb_progressbar_color="#F44336"
-        app:cpb_progressbar_width="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="72dp"
-        android:layout_marginStart="72dp"
-        android:text="Zapatillas Adida"
-        android:id="@+id/textView11" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_alignStart="@+id/textView11"
-        android:layout_below="@+id/textView11"
-        android:text="11/20"
-        android:textSize="15dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_below="@+id/rela4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_procts">
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
-            android:id="@+id/pgr5"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:id="@+id/pgr4"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -221,24 +193,87 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_marginTop="6dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="72dp"
             android:layout_marginStart="72dp"
             android:text="Zapatillas Adida"
-            android:id="@+id/textView12" />
+            android:id="@+id/textView90" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:layout_alignLeft="@+id/textView12"
-            android:layout_alignStart="@+id/textView12"
-            android:layout_below="@+id/textView12"
+            android:layout_alignLeft="@+id/textView90"
+            android:layout_alignStart="@+id/textView90"
+            android:layout_below="@+id/textView90"
             android:text="11/20"
             android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView160"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="20%" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_procts">
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/pgr5"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:cpb_background_progressbar_color="#FFCDD2"
+            app:cpb_background_progressbar_width="5dp"
+            app:cpb_progress="20"
+            app:cpb_progressbar_color="#F44336"
+            app:cpb_progressbar_width="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp"
+            android:text="Zapatillas Adida"
+            android:id="@+id/textView11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_alignLeft="@+id/textView11"
+            android:layout_alignStart="@+id/textView11"
+            android:layout_below="@+id/textView11"
+            android:text="11/20"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:text="20%" />
     </RelativeLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>
