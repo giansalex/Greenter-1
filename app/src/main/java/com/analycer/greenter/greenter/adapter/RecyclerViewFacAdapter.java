@@ -31,6 +31,10 @@ public class RecyclerViewFacAdapter extends RecyclerView.Adapter<RecyclerViewFac
         greenColor = mContext.getResources().getColor(R.color.green);
     }
 
+    public void setOnItemClickListener(OnItemClickListenerFac clickListener) {
+        this.clickListener = clickListener;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
@@ -44,6 +48,9 @@ public class RecyclerViewFacAdapter extends RecyclerView.Adapter<RecyclerViewFac
 
         ViewHolder myHolder = (ViewHolder) holder;
         myHolder.bindData(datasetlist.get(position),redColor,greenColor);
+        if (this.clickListener != null) {
+            holder.setOnItemClickListener(datasetlist.get(position), this.clickListener);
+        }
 
     }
 
