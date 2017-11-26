@@ -24,6 +24,9 @@ public class ClientService {
     public List<Client> getAll() {
         List<Client> clients = new ArrayList<>();
         Map<String, String> codes = new HashMap<>();
+        if (store.invoices == null) {
+            return new ArrayList<>();
+        }
 
         for (Invoice invoice:
              store.invoices) {
