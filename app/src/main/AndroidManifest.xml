@@ -27,9 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailClientActivity"
-                  android:label="@string/user_client"
-                  android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".DetailClientActivity"
+            android:label="@string/user_client"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -49,8 +50,13 @@
         <activity
             android:name=".ClientsMapsActivity"
             android:label="@string/title_activity_clients_maps" />
+        <activity android:name=".LoginActivity">
 
+        </activity>
+        <activity android:name=".IntroSplashActivity"
+            android:theme="@style/Theme.Intro">
 
+        </activity>
     </application>
 
 </manifest>

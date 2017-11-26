@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="425dp"
+    android:layout_marginBottom="50dp"
+    android:orientation="vertical">
+    <android.support.v7.widget.CardView
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutitencard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/imgMaps"
+                android:background="@color/contentDividerLine"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="22dp"
+                android:layout_centerHorizontal="true"
+                android:text="Siemens Peru"
+                android:id="@+id/textView19" />
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/textView19"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/txtname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/profileImageView"
+                android:layout_marginTop="8dp"
+                android:text="Venta de calzados"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/txtRuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Ruc: 213450290"
+                android:textSize="15dp" />
+
+
+            <ImageView
+                android:id="@+id/imgMaps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtRuc"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:scaleType="fitXY" />
+
+            <!--<LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="bottom"
+                android:gravity="center|left"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+
+                <TextView
+                    android:id="@+id/nameAgeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/locationNameTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+-->
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

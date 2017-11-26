@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.analycer.greenter.greenter.R;
-import com.greenter.core.model.Company;
+import com.greenter.core.model.Client;
+import com.greenter.core.model.Client;
 import com.greenter.core.model.Invoice;
 
 import java.util.List;
@@ -21,14 +22,14 @@ import java.util.List;
 public class AdapterListUsers extends RecyclerView.Adapter<AdapterListUsers.UserViewHolder> {
 
 
-    private List<Company> lsCompany;
+    private List<Client> lsClient;
     private Context context;
     private OnItemClickListClient clickListener;
 
     public AdapterListUsers(Context context)
     {
         this.context = context;
-        //this.lsCompany = lsModelSms;
+        //this.lsClient = lsModelSms;
     }
 
 
@@ -45,9 +46,9 @@ public class AdapterListUsers extends RecyclerView.Adapter<AdapterListUsers.User
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
 
-        String mNumberUser = lsCompany.get(position).getRuc();
-        //String mMessage = lsCompany.get(position).getRazonSocial();
-        String mFullname = lsCompany.get(position).getNombreComercial();
+        String mNumberUser = lsClient.get(position).getNumDoc();
+        //String mMessage = lsClient.get(position).getRazonSocial();
+        String mFullname = lsClient.get(position).getRznSocial();
         /*char[] getName = mMessage.toCharArray();
         for (char c:getName){
                 char sam =c;
@@ -55,9 +56,9 @@ public class AdapterListUsers extends RecyclerView.Adapter<AdapterListUsers.User
                 }
         }*/
         if (this.clickListener != null) {
-            holder.setOnItemClickListener(lsCompany.get(position), this.clickListener);
+            holder.setOnItemClickListener(lsClient.get(position), this.clickListener);
         }
-        /*if (lsCompany.get(position).getMessage_sent()){
+        /*if (lsClient.get(position).getMessage_sent()){
             holder.imgCheck.setImageResource(R.drawable.correct);
         }else {
             holder.imgCheck.setImageResource(R.drawable.wrong);
@@ -71,18 +72,18 @@ public class AdapterListUsers extends RecyclerView.Adapter<AdapterListUsers.User
         notifyDataSetChanged();
     }
 
-    public List<Company> getLsCompany() {
-        return lsCompany;
+    public List<Client> getLsClient() {
+        return lsClient;
     }
 
-    public void setElement(List<Company> lsModelSms) {
-        this.lsCompany = lsModelSms;
+    public void setElement(List<Client> lsModelSms) {
+        this.lsClient = lsModelSms;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return lsCompany.size();
+        return lsClient.size();
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
@@ -98,7 +99,7 @@ public class AdapterListUsers extends RecyclerView.Adapter<AdapterListUsers.User
             txtName = (TextView) itemView.findViewById(R.id.textView2);
         }
 
-        public void setOnItemClickListener(final Company element, final OnItemClickListClient listener){
+        public void setOnItemClickListener(final Client element, final OnItemClickListClient listener){
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

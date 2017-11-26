@@ -14,11 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.analycer.greenter.greenter.R;
+import com.bumptech.glide.Glide;
 import com.etsy.android.grid.util.DynamicHeightTextView;
 
 /***
@@ -29,8 +31,10 @@ public class GridItemAdapter extends ArrayAdapter<String> {
 
     private static final String TAG = "SampleAdapter";
 
+
     static class ViewHolder {
         TextView txtLineOne;
+        ImageView imageView;
         Button btnGo;
     }
 
@@ -62,9 +66,16 @@ public class GridItemAdapter extends ArrayAdapter<String> {
             vh = new ViewHolder();
 
             vh.txtLineOne = convertView.findViewById(R.id.txt_line1);
+            vh.imageView = convertView.findViewById(R.id.imgGrid);
             CardView card = convertView.findViewById(R.id.card_grid);
             layout = convertView.findViewById(R.id.panel_content);
 
+            Double rand = getRandomHeightRatio();
+
+            Glide.with(convertView)
+                .load(rand < 1.25 ? "https://i.pinimg.com/736x/4d/20/3f/4d203f17d5d6e35919b7c7c866ad9dd5--converse-fashion-vans-old-skool.jpg":
+                        "https://www.plns.es/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/5/7/5716043504-b-0522.jpg")
+                .into(vh.imageView);
             //vh.btnGo = (Button) convertView.findViewById(R.id.btn_go);
 
             convertView.setTag(vh);
@@ -77,12 +88,12 @@ public class GridItemAdapter extends ArrayAdapter<String> {
         int backgroundIndex = position >= mBackgroundColors.size() ?
                 position % mBackgroundColors.size() : position;
 
-        convertView.setBackgroundResource(mBackgroundColors.get(backgroundIndex));
+        //convertView.setBackgroundResource(mBackgroundColors.get(backgroundIndex));
 
         Log.d(TAG, "getView position:" + position + " h:" + positionHeight);
 
         ViewGroup.LayoutParams params = layout.getLayoutParams();
-        params.height = (int) (positionHeight * 200);
+        params.height = 300;
         layout.setLayoutParams(params);
         //vh.txtLineOne.setHeight((int)(positionHeight * 40));
         //vh.txtLineOne.setHeightRatio(positionHeight);

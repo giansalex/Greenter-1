@@ -15,8 +15,11 @@ import com.analycer.greenter.greenter.DetailClientActivity;
 import com.analycer.greenter.greenter.R;
 import com.analycer.greenter.greenter.adapter.AdapterListUsers;
 import com.analycer.greenter.greenter.adapter.OnItemClickListClient;
+import com.greenter.core.model.Client;
 import com.greenter.core.model.Company;
+import com.greenter.core.model.DataStore;
 import com.greenter.core.model.Invoice;
+import com.greenter.core.service.ClientService;
 import com.stone.vega.library.VegaLayoutManager;
 
 import java.util.ArrayList;
@@ -64,8 +67,9 @@ public class ClientFragment extends Fragment implements OnItemClickListClient {
             smses.add(modelSms3);
             smses.add(modelSms4);
 
+        ClientService mClientService = new ClientService();
 
-            mAdapterListUsers.setElement(smses);
+            mAdapterListUsers.setElement(mClientService.getAll());
             mAdapterListUsers.setOnItemClickListener(this);
 
        /* mMaps.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +81,6 @@ public class ClientFragment extends Fragment implements OnItemClickListClient {
                 startActivity(intent);
             }
         });*/
-
-
-
-
 
         mFabMaps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,7 @@ public class ClientFragment extends Fragment implements OnItemClickListClient {
     }
 
     @Override
-    public void onItemClick(Company element) {
+    public void onItemClick(Client element) {
         Intent intent = new Intent(getActivity(), DetailClientActivity.class);
         startActivity(intent);
     }

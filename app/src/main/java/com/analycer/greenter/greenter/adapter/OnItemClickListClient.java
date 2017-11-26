@@ -1,5 +1,6 @@
 package com.analycer.greenter.greenter.adapter;
 
+import com.greenter.core.model.Client;
 import com.greenter.core.model.Company;
 
 /**
@@ -7,5 +8,5 @@ import com.greenter.core.model.Company;
  */
 
 public interface OnItemClickListClient {
-    void onItemClick(Company element);
+    void onItemClick(Client element);
 }

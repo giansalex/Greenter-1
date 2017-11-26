@@ -37,4 +37,12 @@
     <string name="content_to1_mock">46th Ave</string>
     <string name="content_to2_mock">Woodside, NY 11101</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="title_canteen_intro1" translatable="false">Organiza tu empresa</string>
+    <string name="title_canteen_intro2" translatable="false">Fideliza a tus clientes</string>
+    <string name="title_canteen_intro3" translatable="false">Aumenta tus ingresos</string>
+    <string name="description_canteen_intro1" translatable="false">Aprovecha el poder de la información de tus facturas electrónicas.</string>
+    <string name="description_canteen_intro2" translatable="false">Conoce más de cerca a tus clientes y sus intereses.</string>
+    <string name="description_canteen_intro3" translatable="false">Realiza mejores ventas mediante el análisis de tus datos</string>
+    <string name="label_button_cta_canteen_intro" translatable="false">Empezar</string>
 </resources>

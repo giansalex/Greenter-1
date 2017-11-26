@@ -1,6 +1,7 @@
 package com.analycer.greenter.greenter.fragments;
 
 
+import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -24,8 +25,14 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.greenter.core.math.SaleCalculator;
+import com.greenter.core.model.DataStore;
+import com.greenter.core.service.DataService;
+import com.greenter.core.service.SaleService;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,9 +49,13 @@ public class ResumFragment extends Fragment {
     private ImageView mImgDownVentas;
     private TextView mPorcentVentas;
     private TextView mTitleVentas;
+    private TextView mTotal;
     private LineChart mChartVentas;
     private ArrayList<Entry> values;
     private ImageView mCircleAhora,mCircleDia,mCircleSemana,mCircleMes,mCircleBlue;
+    private SaleCalculator saleCalculator;
+    private LineDataSet dataSet;
+    private String[] quarters;
     //private TextView mTxtAhora,mTxtDia,mTxtSemana,mTxtMes;
 
 
@@ -55,6 +66,8 @@ public class ResumFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_resum, container, false);
         findViewById();
         event();
+        DataStore store = DataService.getInstance().getStore();
+        saleCalculator = new SaleCalculator(store);
 
        /* mChartVentas.setOnChartGestureListener(this);
         mChartVentas.setOnChartValueSelectedListener(this);*/
@@ -78,7 +91,7 @@ public class ResumFragment extends Fragment {
         seetData(6, 1400);
 
 
-        final String[] quarters = new String[] { "JUL.", "AGO.", "SEPT.", "OCT.","NOV","DIC" };
+        quarters = new String[] { "JUN","JUL.", "AGO.", "SEPT.", "OCT.","NOV" };
 
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
             @Override
@@ -105,18 +118,19 @@ public class ResumFragment extends Fragment {
         mChartVentas.getAxisRight().setEnabled(false);
         //mChartVentas.getAxisLeft().setGridColor(Color.WHITE);
 
-        LineDataSet dataSet = new LineDataSet(values, "Ventas"); // add entries to dataset
+        dataSet = new LineDataSet(values, "Ventas"); // add entries to dataset
         dataSet.setColor(ContextCompat.getColor(getActivity(), R.color.colorLineX));
         dataSet.setDrawValues(false);
         dataSet.setLineWidth(2.3f);
         dataSet.setCircleColors(ContextCompat.getColor(getActivity(), R.color.colorLineX));
-        dataSet.setCircleSize(4.6f);
+        dataSet.setCircleRadius(4.6f);
         //dataSet.setValueTextColor(ContextCompat.getColor(getActivity(), R.color.colordownicon));
 
         LineData lineData = new LineData(dataSet);
         mChartVentas.setData(lineData);
+        mChartVentas.animateX(700);
         mChartVentas.invalidate(); //
-
+        startCountAnimation();
 
         return view;
     }
@@ -141,11 +155,12 @@ public class ResumFragment extends Fragment {
         mCircleSemana = view.findViewById(R.id.circleSemana);
         mCircleMes = view.findViewById(R.id.circleMes);
         mCircleBlue = view.findViewById(R.id.circleBlue);
+        mTotal = view.findViewById(R.id.txtTotalVentas);
        /* mTxtAhora = view.findViewById(R.id.txtAhora);
         mTxtDia = view.findViewById(R.id.txtDia);
         mTxtSemana = view.findViewById(R.id.txtSemana);
         mTxtMes = view.findViewById(R.id.txtMes);*/
-        DrawableCompat.setTint(mImgDownVentas.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
+        //DrawableCompat.setTint(mImgDownVentas.getDrawable(), ContextCompat.getColor(getActivity(), R.color.colorLine));
         mPorcentVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorupicon));
         mTitleVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorfount));
     }
@@ -154,21 +169,29 @@ public class ResumFragment extends Fragment {
         mCircleAhora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAnimationTranslate(mCircleAhora);
+            setAnimationTranslate(mCircleAhora);
+                setGraph(1);
+                mImgUpVentas.setImageResource(R.drawable.ic_down_ventas);
+                mPorcentVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colordownicon));
+
             }
         });
 
         mCircleDia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAnimationTranslate(mCircleDia);
+            setAnimationTranslate(mCircleDia);
+                setGraph(2);
+                mImgUpVentas.setImageResource(R.drawable.ic_up_ventas);
+                mPorcentVentas.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorupicon));
             }
         });
 
         mCircleSemana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAnimationTranslate(mCircleSemana);
+            setAnimationTranslate(mCircleSemana);
+                setGraph(4);
             }
         });
 
@@ -176,11 +199,46 @@ public class ResumFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 setAnimationTranslate(mCircleMes);
+                setGraph(3);
             }
         });
 
     }
 
+    private void setGraph(int type)
+    {
+        Map<String, Float> items = saleCalculator.getByType(type);
+
+        int count = 0;
+        List<Entry> dataValues = new ArrayList<>();
+        ArrayList<String> heads = new ArrayList<>();
+
+        for (Map.Entry<String, Float> entry : items.entrySet())
+        {
+            heads.add(entry.getKey());
+            dataValues.add(new Entry(count++, entry.getValue()));
+        }
+
+        String[] headArr = new String[heads.size()];
+        quarters = heads.toArray(headArr);
+
+        dataSet.setValues(dataValues);
+        //mChartVentas.invalidate();
+        mChartVentas.getData().notifyDataChanged();
+        mChartVentas.notifyDataSetChanged();
+        mChartVentas.animateX(700);
+    }
+
+    private void startCountAnimation() {
+        ValueAnimator animator = ValueAnimator.ofInt(0, 2500);
+        animator.setDuration(1500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mTotal.setText("S/." + animation.getAnimatedValue().toString());
+            }
+        });
+        animator.start();
+    }
 
     private Point getCenterPoint(View view){
         //si usas .x usa esto

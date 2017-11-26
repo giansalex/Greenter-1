@@ -1,5 +1,6 @@
 package com.analycer.greenter.greenter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 
 import com.analycer.greenter.greenter.fragments.CategoriaFragment;
 import com.analycer.greenter.greenter.fragments.ClientFragment;
+import com.analycer.greenter.greenter.fragments.ClientFutureFragment;
 import com.analycer.greenter.greenter.fragments.ComprobantesFragment;
 import com.analycer.greenter.greenter.fragments.ProductsFragment;
 import com.analycer.greenter.greenter.fragments.ResumFragment;
@@ -28,6 +30,7 @@ import com.greenter.core.service.ApiService;
 import com.greenter.core.service.DataService;
 import com.greenter.core.service.DataStoreService;
 import com.greenter.core.service.NetWorking;
+import com.analycer.greenter.greenter.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ApiDataRequest<DataStore> {
@@ -39,9 +42,13 @@ public class MainActivity extends AppCompatActivity
     private Fragment mResumFragment;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Intent mIntent = new Intent(this, IntroSplashActivity.class);
+//        startActivity(mIntent);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         findViewById();
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         NetWorking.init(getApplicationContext(), API_ENDPOINT);
         ApiService.setToken(API_TOKEN);
         new DataStoreService(this).getAll();
+
     }
 
     private void findViewById(){
@@ -136,7 +144,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_compro:
                 mFragment = new ComprobantesFragment();
                 break;
-            case R.id.nav_send:
+            case R.id.nav_share:
+                mFragment = new ClientFutureFragment();
                 break;
         }
 

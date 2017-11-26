@@ -10,11 +10,11 @@
             android:title="Resumen" />
         <item
             android:id="@+id/nav_product"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_product"
             android:title="Producto" />
         <item
             android:id="@+id/nav_category"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_categoria"
             android:title="Categoria" />
         <item
             android:id="@+id/nav_client"
@@ -22,7 +22,7 @@
             android:title="Clientes" />
         <item
             android:id="@+id/nav_compro"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_comprobants"
             android:title="Comprobantes"/>
     </group>
 
@@ -30,8 +30,8 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:icon="@drawable/ic_bussines"
+                android:title="Captar Clientes" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"

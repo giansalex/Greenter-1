@@ -30,6 +30,7 @@ public class ClientService {
 
             Client client = invoice.getClient();
             if (isValid(client, codes)) {
+                codes.put(client.getNumDoc(), "");
                 clients.add(client);
             }
         }
@@ -39,6 +40,7 @@ public class ClientService {
 
             Client client = note.getClient();
             if (isValid(client, codes)) {
+                codes.put(client.getNumDoc(), "");
                 clients.add(client);
             }
         }
