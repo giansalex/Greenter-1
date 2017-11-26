@@ -10,4 +10,12 @@
 ### Otros  
 https://github.com/heinrichreimer/material-intro   
 https://github.com/wasabeef/awesome-android-ui   
-https://github.com/airbnb/lottie-android   
+https://github.com/airbnb/lottie-android  
+https://github.com/andreilisun/Swipe-To-Dismiss-Dialog  
+https://github.com/Ramotion?language=java  
+[Tinder PlaceHolder](https://github.com/janishar/PlaceHolderView/)  
+[Intro Animated](https://github.com/Nightonke/WoWoViewPager)  
+[Fold Cell](https://github.com/Ramotion/folding-cell-android)  
+[RecyclerView with Header](https://github.com/blipinsk/RecyclerViewHeader)  
+[Android Libs](https://github.com/XXApple/AndroidLibs)  
+[Ramotion](https://github.com/Ramotion)  
