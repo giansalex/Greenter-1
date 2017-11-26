@@ -24,7 +24,7 @@
             app:cpb_background_progressbar_width="5dp"
             app:cpb_progress="20"
             app:cpb_progressbar_color="#F44336"
-            app:cpb_progressbar_width="10dp" />
+            app:cpb_progressbar_width="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_alignLeft="@+id/textView8"
             android:layout_alignStart="@+id/textView8"
             android:layout_below="@+id/textView8"
-            android:text="11/20"
+            android:text="16/80"
             android:textSize="15dp"
             android:id="@+id/textView13" />
 
@@ -75,11 +75,12 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
             app:cpb_background_progressbar_color="#FFCDD2"
             app:cpb_background_progressbar_width="5dp"
-            app:cpb_progress="20"
+            app:cpb_progress="55"
             app:cpb_progressbar_color="#F44336"
-            app:cpb_progressbar_width="10dp" />
+            app:cpb_progressbar_width="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,7 +91,7 @@
             android:layout_marginLeft="72dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="72dp"
-            android:text="Zapatillas Adida"
+            android:text="Sansalias Amir"
             android:id="@+id/textView10" />
 
         <TextView
@@ -112,7 +113,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="19dp"
             android:layout_marginStart="19dp"
-            android:text="20%" />
+            android:text="55%" />
 
     </RelativeLayout>
 
@@ -133,7 +134,7 @@
             app:cpb_background_progressbar_width="5dp"
             app:cpb_progress="20"
             app:cpb_progressbar_color="#F44336"
-            app:cpb_progressbar_width="10dp" />
+            app:cpb_progressbar_width="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -144,7 +145,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="72dp"
             android:layout_marginStart="72dp"
-            android:text="Zapatillas Adida"
+            android:text="Taco NM"
             android:id="@+id/textView9" />
 
         <TextView
@@ -154,7 +155,7 @@
             android:layout_alignLeft="@+id/textView9"
             android:layout_alignStart="@+id/textView9"
             android:layout_below="@+id/textView9"
-            android:text="11/20"
+            android:text="4/20"
             android:textSize="15dp"/>
 
         <TextView
@@ -184,9 +185,9 @@
             android:layout_alignParentTop="true"
             app:cpb_background_progressbar_color="#FFCDD2"
             app:cpb_background_progressbar_width="5dp"
-            app:cpb_progress="20"
+            app:cpb_progress="40"
             app:cpb_progressbar_color="#F44336"
-            app:cpb_progressbar_width="10dp" />
+            app:cpb_progressbar_width="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -197,7 +198,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="72dp"
             android:layout_marginStart="72dp"
-            android:text="Zapatillas Adida"
+            android:text="Zapatillas Prestige"
             android:id="@+id/textView90" />
 
         <TextView
@@ -207,7 +208,7 @@
             android:layout_alignLeft="@+id/textView90"
             android:layout_alignStart="@+id/textView90"
             android:layout_below="@+id/textView90"
-            android:text="11/20"
+            android:text="8/20"
             android:textSize="15dp"/>
 
         <TextView
@@ -219,7 +220,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:text="20%" />
+            android:text="40%" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -239,7 +240,7 @@
             app:cpb_background_progressbar_width="5dp"
             app:cpb_progress="20"
             app:cpb_progressbar_color="#F44336"
-            app:cpb_progressbar_width="10dp" />
+            app:cpb_progressbar_width="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -250,7 +251,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="72dp"
             android:layout_marginStart="72dp"
-            android:text="Zapatillas Adida"
+            android:text="Zapatos XK"
             android:id="@+id/textView11" />
 
         <TextView
@@ -260,7 +261,7 @@
             android:layout_alignLeft="@+id/textView11"
             android:layout_alignStart="@+id/textView11"
             android:layout_below="@+id/textView11"
-            android:text="11/20"
+            android:text="2/10"
             android:textSize="15dp"/>
 
         <TextView

@@ -1,10 +1,12 @@
 package com.analycer.greenter.greenter.fragments;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -13,9 +15,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import com.analycer.greenter.greenter.R;
+import com.analycer.greenter.greenter.cardpager.CardFragmentPagerAdapter;
+import com.analycer.greenter.greenter.cardpager.CardItem;
+import com.analycer.greenter.greenter.cardpager.CardPagerAdapter;
+import com.analycer.greenter.greenter.cardpager.ShadowTransformer;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -42,12 +47,20 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
 
     private SaleService mServices;
     private PieChart mPieChar;
+    private ViewPager mViewPager;
+
+    private CardPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
+
+    private boolean mShowingFragments = false;
 
     protected String[] mParties = new String[] {
-            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
-            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
-            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
-            "Party Y", "Party Z"
+            "CAT A", "CAT B", "CAT C", "CAT D", "CAT E", "CAT F", "CAT G", "CAT H",
+            "CAT I", "CAT J", "CAT K", "CAT L", "CAT M", "CAT N", "CAT O", "CAT P",
+            "CAT Q", "CAT R", "CAT S", "CAT T", "CAT U", "CAT V", "CAT W", "CAT X",
+            "CAT Y", "CAT Z"
     };
 
 
@@ -63,6 +76,28 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_categoria, container, false);
+
+
+        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+
+
+        mCardAdapter = new CardPagerAdapter();
+        Context activaty = getActivity();
+        mCardAdapter.addCardItem(new CardItem("CAT A", "Materia prima", "https://http2.mlstatic.com/D_Q_NP_602715-MPE25280543856_012017-Q.jpg"), activaty);
+        mCardAdapter.addCardItem(new CardItem("CAT B", "Telas", "https://http2.mlstatic.com/tapete-passadeira-bodas-igreja-casamento-festa-5mx1-D_NQ_NP_823311-MLB20525372323_122015-F.jpg"),activaty);
+        mCardAdapter.addCardItem(new CardItem("CAT C",  "Calzados de noche", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw2GGRCARfyKkMpwXmedwa0XHQCZgLPUCjHbsbGmH_tXTxk8u2"), activaty);
+        mCardAdapter.addCardItem(new CardItem("CAT D", "Ropa de primarvera", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwB0Knlx_cQvWsyKoqMu3tXbBNLExqWiziO3egEEwGi5aRSyZ3"), activaty);
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(getActivity().getSupportFragmentManager(),
+                dpToPixels(2, getActivity()));
+
+        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
+        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
+
+        mViewPager.setAdapter(mCardAdapter);
+        mViewPager.setPageTransformer(false, mCardShadowTransformer);
+        mViewPager.setOffscreenPageLimit(3);
+
+
         mServices = new SaleService(this);
 
         mPieChar = (PieChart) view.findViewById(R.id.chartCategoria);
@@ -122,13 +157,13 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
 
     private SpannableString generateCenterSpannableText() {
 
-        SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");
-        s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-        s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
-        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-        s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-        s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
-        s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+        SpannableString s = new SpannableString("Categoria\nde productos");
+        s.setSpan(new RelativeSizeSpan(1.7f), 0, 9, 0);
+        s.setSpan(new StyleSpan(Typeface.NORMAL), 9, s.length() - 10, 0);
+        //s.setSpan(new ForegroundColorSpan(Color.GRAY), 10, s.length() - 11, 0);
+        //s.setSpan(new RelativeSizeSpan(.8f), 10, s.length() - 11, 0);
+        //s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 10, s.length(), 0);
+        //s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 10, s.length(), 0);
         return s;
     }
 
@@ -147,7 +182,7 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
         }
 
 
-        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+        PieDataSet dataSet = new PieDataSet(entries, "Resultados");
 
         dataSet.setDrawIcons(false);
 
@@ -192,6 +227,10 @@ public class CategoriaFragment extends Fragment implements ApiDataRequest<List<I
         mPieChar.invalidate();
     }
 
+
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
+    }
 
     @Override
     public void setApiResponse(List<Invoice> invoiceList) {

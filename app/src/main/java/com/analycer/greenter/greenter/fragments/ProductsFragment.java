@@ -1,9 +1,11 @@
 package com.analycer.greenter.greenter.fragments;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,10 @@ import android.widget.Toast;
 import com.analycer.greenter.greenter.R;
 import com.analycer.greenter.greenter.adapter.FoldingCellListAdapter;
 import com.analycer.greenter.greenter.adapter.Item;
+import com.analycer.greenter.greenter.cardpager.CardFragmentPagerAdapter;
+import com.analycer.greenter.greenter.cardpager.CardItem;
+import com.analycer.greenter.greenter.cardpager.CardPagerAdapter;
+import com.analycer.greenter.greenter.cardpager.ShadowTransformer;
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
@@ -36,6 +42,19 @@ import java.util.ArrayList;
  */
 public class ProductsFragment extends Fragment {
 
+    private ViewPager mViewPager;
+
+    private CardPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
+    protected String[] mParties = new String[] {
+            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
+            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
+            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
+            "Party Y", "Party Z"
+    };
+
 
    private CombinedChart mChart;
    private String[] mMonths = new String[] {
@@ -56,6 +75,25 @@ public class ProductsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_products, container, false);
         //mTfLight = Typeface.createFromAsset(getContext().getAssets(), "OpenSans-Light.ttf");
+
+        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+
+
+        Context activaty = getActivity();
+        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter.addCardItem(new CardItem("PROD1", "Zapatillas Adidas", "https://http2.mlstatic.com/D_Q_NP_602715-MPE25280543856_012017-Q.jpg"), activaty);
+        mCardAdapter.addCardItem(new CardItem("PROD 2", "Sandalias de Verano", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXeESk4wUpyinyJGb_2Cni_ZT-44EOLKLDrb-Ae0yYuG_whB3kgQ"), activaty);
+        mCardAdapter.addCardItem(new CardItem("PROD 3", "Zapatos de Noche", "http://www.zapatos.org/wp-content/uploads/sites/8/2012/05/zapato-noche-blanco.jpeg"), activaty);
+        mCardAdapter.addCardItem(new CardItem("PROD 4", "Botas doble encaje", "http://www.heyas.com.ar/media/catalog/product/cache/7/image/420x650/9df78eab33525d08d6e5fb8d27136e95/1/4/146z1046-ne0-1.jpg"), activaty);
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(getActivity().getSupportFragmentManager(),
+                dpToPixels(2, getActivity()));
+
+        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
+        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
+
+        mViewPager.setAdapter(mCardAdapter);
+        mViewPager.setPageTransformer(false, mCardShadowTransformer);
+        mViewPager.setOffscreenPageLimit(3);
 
         mChart = (CombinedChart) view.findViewById(R.id.chartCombinate);
         mChart.getDescription().setEnabled(false);
@@ -107,46 +145,11 @@ public class ProductsFragment extends Fragment {
         mChart.setData(data);
         mChart.invalidate();
 
-        ListView theListView = (ListView) view.findViewById(R.id.mainListView);
-
-        // prepare elements to display
-        final ArrayList<Item> items = Item.getTestingList();
-
-        // add custom btn handler to first list item
-        items.get(0).setRequestBtnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "CUSTOM HANDLER FOR FIRST BUTTON", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        final FoldingCellListAdapter adapter = new FoldingCellListAdapter(getActivity(), items);
-
-        // add default btn handler for each request btn on each item if custom handler not found
-        adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "DEFAULT HANDLER FOR ALL BUTTONS", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // set elements to adapter
-
-        theListView.setAdapter(adapter);
-
-        // set on click event listener to list view
-        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                // toggle clicked cell state
-                ((FoldingCell) view).toggle(false);
-                // register in adapter that state for selected cell is toggled
-                adapter.registerToggle(pos);
-            }
-        });
-
         return view;
+    }
+
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
     }
 
     private float getRandom(float range, float startsfrom) {
@@ -162,7 +165,7 @@ public class ProductsFragment extends Fragment {
         for (int index = 0; index < itemcount; index++)
             entries.add(new Entry(index + 0.5f, getRandom(15, 5)));
 
-        LineDataSet set = new LineDataSet(entries, "Line DataSet");
+        LineDataSet set = new LineDataSet(entries, "Promedio");
         set.setColor(Color.rgb(240, 238, 70));
         set.setLineWidth(2.5f);
         set.setCircleColor(Color.rgb(240, 238, 70));
@@ -190,21 +193,21 @@ public class ProductsFragment extends Fragment {
             entries2.add(new BarEntry(0, new float[]{getRandom(13, 12), getRandom(13, 12)}));
         }
 
-        BarDataSet set1 = new BarDataSet(entries1, "Bar 1");
+        BarDataSet set1 = new BarDataSet(entries1, "PROD 1");
         set1.setColor(Color.rgb(60, 220, 78));
         set1.setValueTextColor(Color.rgb(60, 220, 78));
         set1.setValueTextSize(10f);
         set1.setAxisDependency(YAxis.AxisDependency.LEFT);
 
         BarDataSet set2 = new BarDataSet(entries2, "");
-        set2.setStackLabels(new String[]{"Stack 1", "Stack 2"});
+        set2.setStackLabels(new String[]{"PROD 2", "PROD 3"});
         set2.setColors(new int[]{Color.rgb(61, 165, 255), Color.rgb(23, 197, 255)});
         set2.setValueTextColor(Color.rgb(61, 165, 255));
         set2.setValueTextSize(10f);
         set2.setAxisDependency(YAxis.AxisDependency.LEFT);
 
         float groupSpace = 0.06f;
-        float barSpace = 0.02f; // x2 dataset
+        float barSpace = 0.02f; // x2 dataset .Ñ
         float barWidth = 0.45f; // x2 dataset
         // (0.45 + 0.02) * 2 + 0.06 = 1.00 -> interval per "group"
 

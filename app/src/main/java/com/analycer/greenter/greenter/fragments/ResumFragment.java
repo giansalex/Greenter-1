@@ -230,7 +230,7 @@ public class ResumFragment extends Fragment {
     }
 
     private void startCountAnimation() {
-        ValueAnimator animator = ValueAnimator.ofInt(0, 2500);
+        ValueAnimator animator = ValueAnimator.ofInt(0, 25020);
         animator.setDuration(1500);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             public void onAnimationUpdate(ValueAnimator animation) {

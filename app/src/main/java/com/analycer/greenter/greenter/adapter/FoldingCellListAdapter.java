@@ -48,7 +48,15 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
             viewHolder.toAddress = (TextView) cell.findViewById(R.id.title_to_address);
             viewHolder.requestsCount = (TextView) cell.findViewById(R.id.title_requests_count);
             viewHolder.pledgePrice = (TextView) cell.findViewById(R.id.title_pledge);
-            viewHolder.contentRequestBtn = (TextView) cell.findViewById(R.id.content_request_btn);
+
+            viewHolder.serieDoc = cell.findViewById(R.id.txtserieNro);
+            viewHolder.cantidad = cell.findViewById(R.id.head_cantidad);
+            viewHolder.total = cell.findViewById(R.id.head_total);
+            viewHolder.nombreRsz = cell.findViewById(R.id.content_rzSocial);
+            viewHolder.fechaEmision = cell.findViewById(R.id.content_fecEmision);
+            viewHolder.igv = cell.findViewById(R.id.content_igv);
+
+            //viewHolder.contentRequestBtn = (TextView) cell.findViewById(R.id.content_request_btn);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -68,15 +76,11 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         viewHolder.toAddress.setText(item.getToAddress());
         viewHolder.requestsCount.setText(String.valueOf(item.getRequestsCount()));
         viewHolder.pledgePrice.setText(item.getPledgePrice());
-
-        // set custom btn handler for list item from that item
-        if (item.getRequestBtnClickListener() != null) {
-            viewHolder.contentRequestBtn.setOnClickListener(item.getRequestBtnClickListener());
-        } else {
-            // (optionally) add "default" handler if no handler found in item
-            viewHolder.contentRequestBtn.setOnClickListener(defaultRequestBtnClickListener);
-        }
-
+        viewHolder.cantidad.setText(String.valueOf(item.getRequestsCount()));
+        viewHolder.total.setText(item.getPledgePrice());
+        viewHolder.nombreRsz.setText(item.getToAddress());
+        viewHolder.fechaEmision.setText(item.getTime());
+        viewHolder.serieDoc.setText(item.getFromAddress());
 
         return cell;
     }
@@ -115,5 +119,12 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
         TextView requestsCount;
         TextView date;
         TextView time;
+
+        TextView cantidad;
+        TextView total;
+        TextView nombreRsz;
+        TextView fechaEmision;
+        TextView igv;
+        TextView serieDoc;
     }
 }

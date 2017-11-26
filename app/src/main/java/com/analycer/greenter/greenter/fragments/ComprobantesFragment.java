@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.analycer.greenter.greenter.R;
-import com.analycer.greenter.greenter.fragments.tabs.BoletasFragment;
-import com.analycer.greenter.greenter.fragments.tabs.FacturasFragment;
-import com.analycer.greenter.greenter.fragments.tabs.NotaCreditoFragment;
-import com.analycer.greenter.greenter.fragments.tabs.NotaDebitoFragment;
+import com.analycer.greenter.greenter.fragments.tabslist.FacturaFragment;
+import com.analycer.greenter.greenter.fragments.tabslist.NotaCreditoFragment;
+import com.analycer.greenter.greenter.fragments.tabslist.NotaDebitoFragment;
+import com.analycer.greenter.greenter.fragments.tabslist.BoletasListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,8 +83,8 @@ public class ComprobantesFragment extends Fragment {
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
         adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new FacturasFragment(), "FAC");
-        adapter.addFragment(new BoletasFragment(), "BOL");
+        adapter.addFragment(new FacturaFragment(), "FAC");
+        adapter.addFragment(new BoletasListFragment(), "BOL");
         adapter.addFragment(new NotaCreditoFragment(), "NCR");
         adapter.addFragment(new NotaDebitoFragment(), "NDB");
         viewPager.setOffscreenPageLimit(2);

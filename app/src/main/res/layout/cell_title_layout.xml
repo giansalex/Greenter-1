@@ -131,7 +131,7 @@
             android:layout_alignLeft="@id/title_requests_count" />
 
         <TextView
-            android:id="@+id/title_weight"
+            android:id="@+id/title_pledge"
             style="@style/TitleBadgeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,22 +140,6 @@
             android:text="@string/weight_mock"
             android:layout_alignParentRight="true" />
 
-        <TextView
-            style="@style/TitleBadgeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/title_weight"
-            android:layout_alignStart="@id/title_weight"
-            android:text="@string/weight_badge"
-            android:layout_alignLeft="@id/title_weight" />
-
-        <TextView
-            android:id="@+id/title_pledge"
-            style="@style/TitleBadgeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
 
         <TextView
             style="@style/TitleBadgeTitle"
@@ -163,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/title_pledge"
             android:layout_alignStart="@id/title_pledge"
-            android:text="@string/pledge_badge"
+            android:text="@string/weight_badge"
             android:layout_alignLeft="@id/title_pledge" />
 
     </RelativeLayout>
