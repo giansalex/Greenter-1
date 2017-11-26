@@ -19,12 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:padding="10dp"
             android:id="@+id/imgNavDrawSingle"
             android:layout_width="60dp"
             android:layout_marginTop="8dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_user"
+            app:srcCompat="@drawable/man"
             android:scaleY="2"
             android:scaleX="2"
             android:contentDescription="@string/app_name"
@@ -42,6 +43,7 @@
             android:layout_toLeftOf="@+id/ticket_icon"
             android:layout_toStartOf="@+id/ticket_icon">
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"

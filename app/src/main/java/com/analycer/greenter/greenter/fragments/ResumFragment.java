@@ -25,6 +25,8 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.greenter.core.math.SaleCalculator;
 import com.greenter.core.model.DataStore;
 import com.greenter.core.service.DataService;
@@ -37,7 +39,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResumFragment extends Fragment {
+public class ResumFragment extends Fragment implements OnChartValueSelectedListener {
 
 
     public ResumFragment() {
@@ -85,6 +87,7 @@ public class ResumFragment extends Fragment {
         // mChart.setScaleXEnabled(true);
         // mChart.setScaleYEnabled(true);
 
+        mChartVentas.setOnChartValueSelectedListener(this);
         // if disabled, scaling can be done on x- and y-axis separately
         mChartVentas.setPinchZoom(false);
 
@@ -258,5 +261,16 @@ public class ResumFragment extends Fragment {
                   Point mAxisBlue = getCenterPoint(mCircleBlue);
                   float xAxisAnimate = mAxisAhora.x - mAxisBlue.x;*/
         mCircleBlue.animate().x(mAxisAhora.x).setDuration(500);
+    }
+
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        mChartVentas.centerViewToAnimated(e.getX(), e.getY(), mChartVentas.getData().getDataSetByIndex(h.getDataSetIndex())
+                .getAxisDependency(), 500);
+    }
+
+    @Override
+    public void onNothingSelected() {
+
     }
 }
